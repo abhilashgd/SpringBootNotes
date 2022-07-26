@@ -136,7 +136,7 @@
                     @Bean
                     public HttpTraceRepository|htttpTraceRepository())
                     {
-                    return new InMemoryHttpTraceRepository0):
+                    return new InMemoryHttpTraceRepository():
                     }
                     }
                     
@@ -169,7 +169,7 @@
                     @Component
                     @Endpoint (id = "customActuator")
                     public class CustomActuator {
-                    PReadOperation
+                    @ReadOperation
                     public String currentDbDetails0) {
                     return
                     "Give current DB status of the application";
@@ -177,7 +177,9 @@
                     }
 
 
-
+                    Main things 
+                     @Endpoint (id = "customActuator")
+                       @ReadOperation
 
 
 
