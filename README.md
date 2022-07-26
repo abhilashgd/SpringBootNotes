@@ -245,7 +245,7 @@
                     }
                     }
 
-
+                    When a property is defined in both yaml and properties file, spring boot gives preference to properties file than yaml
 
 
 
