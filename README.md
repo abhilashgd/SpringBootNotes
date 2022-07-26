@@ -180,6 +180,89 @@
                     Main things 
                      @Endpoint (id = "customActuator")
                        @ReadOperation
+                       
+#17 Steps to deploy Spring boot web applications as JAR and WAR files?
+
+                    - To deploy a spring boot web application, you just have to add the following plugin in the pom.xml file
+
+                    <build>
+                    <plugins>
+                    <plugin>
+                              <groupId> org.springframework.boot</groupId>
+                              <artifactId> spring-boot-maven-plugin</artifactId>
+                    </plugin>
+                    </plugins>
+                    <build>
+
+                    By using the above plugin, you will get a JAR executing the package phase. This JAR will contain all the necessary libraries and dependencies required. It will also contain an embedded server. So, you can basically run the application like an ordinary JAR file.
+                    Note: the packaging element in the pom.xml file must be set to jar to build a JAR file as below
+
+                    <packaging>jar</packaging> or <packaging>war</packaging>
+                    
+#18 Advantages of YAML file over properties file
+
+                    - more clarity and better readability
+                    - perfect for hierarchical configuration data which is also represented in a better, more readable format
+                    - support for maps, lists and scalar types
+
+                    We need PropertySourceFactory with  YamlPropertiesFactoryBean(); to read yaml files in spring boot application
+
+                    CODE example: 
+
+                    package com.code.decode.yaml.demo;
+                    import java.io.IOException;_
+
+                    public class YamlPropertySourceFactory implements PropertySourceFactory{
+
+                    @Override
+                    public PropertySource<?› createPropertySource(String name, EncodedResource encodedResource)
+                    throws I0Exception {
+
+                    // we used the YamlPropertiesFactoryBean to convert the resources in YAML format
+                    //to the java.util.Properties object.
+
+                    YamlPropertiesFactoryBean factory = new YamlPropertiesFactoryBean();
+                    factory.setResources(encodedResource.getResource());
+                    Properties properties = factory.getObject();
+                    return new PropertiesPropertySource(encodedResource-getResource()-getFilename(),properties);
+                    }
+                    }
+
+
+                    package com.code.decode.yaml.demo. Controller;
+                    import org.springframework.beans.factory.annotation.Value;!
+                    @RestController
+                    @ConfigurationProperties (prefix
+                    "yaml")
+                    @PropertySource (value="classpath: application.yml", factory = YamlPropertySourceFactory.class)
+
+                    public class DemoController{
+                    @Value("${spring.profiles.active}")
+                    private String springProfiles;
+                    @GetMapping("/pathToSomeAPI'
+                    public void codeDecodeControllerDemo() {
+                    System.out.println("springProfiles" + springProfiles);
+                    }
+                    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
