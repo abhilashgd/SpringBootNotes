@@ -75,8 +75,22 @@
           - same goes with @RestController and @cController annotation
           - @Controller Map of the model object to view or template and makes it human readable but @RestCOntroller simply returns the object and object data is directly written into HTTP response as JSON or XML.
 
+#11 what are the major differences between RequestMapping and GetMapping?
 
+          - RequestMapping can be used with GET, POST, PUT, and many other request methods using the method attribute on the annotation. Whereas GetMapping is only an extension of RequestMapping, which helps you to improve clarity on requests.
 
+          Example:
+          @RequestMapping ("/path") - handles get, post, put, etc
+
+          @GetMapping("/path")
+
+#12 what is the use of profiles in Spring Boot?
+
+          - When developing applications for the enterprise, we typically deal with multiple environments such as Dev, QA and prod. The configuration properties for these environments are different.
+
+          - for example, we might be using an embedded h2 database for dev, but prod could have the proprietary oracle DB2. Even if the DBMS is the same across environments, the URLs would definitely be different.
+
+          - to make this easy and clean, spring has the provision of profiles. to help separate the configuration for each environment so that instead of maintaining this programatically, the properties can be kept in separate files such as application-dev.properties and application-prod.properties. the default application.properties points to the currently active profile using spring.profils.active so that the current configuration is picked up
 
 
 
