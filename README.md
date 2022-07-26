@@ -21,6 +21,7 @@
             - Testing and turnover - product is tested and if changes are required then whole process starts again.
             
 #3 is this possible to change the port of embedded tomcat server in spring boot ?
+
           - Yes
           - by default 8080
           - server.port = 8090 in application.properties
@@ -46,11 +47,33 @@
 
 
 #7 what does the @SpringBootApplication annotation do internally?
+
           As per the spring boot doc, the @SpringBootApplication is equivalent to using @COnfiguration, @EnableAutoConfiguration and @ComponentScan with their default attributes
           Spring boot enables the developer to use a single annotation instead of using multiple. But, as we know, spring provided loosely coupled features that we can use for each individual annotation as per our project needs
 
 
+#8 how to use a property defined in application.properties file into your java class
 
+          - use the @Value annotation to access the properties which is defined in the application - properties file
+
+          EX: @Value ("${custom.value}"}
+          - private String customVal;
+
+#9 Explain @RestController annotation in Spring Boot
+
+          - @RestController is a convenience annotation for creating Restful controllers. It is a specialisation of @Component and is autodetected through class path scanning. 
+          It adds the @Controller and @ResponseBody annotations. It converts the response to JSON or XML.
+
+          - which eliminates the need to annotate every request handling method of the controller class with the @ResponseBody annotation. It is typically used in combination with annotated handler methods based on the @RequestMapping annotation
+
+          - indicates that the data returned by each method will be written into the response body instead of rendering a template
+
+#10 difference between @RestController and @Controller ?
+
+          - Its that the response from a web application is generally a view (HTML + CSS + JavaScript) because they are intended for human viewers while Rest API just return data in form of JSON or XML because most of the rest clients are programs.
+
+          - same goes with @RestController and @cController annotation
+          - @Controller Map of the model object to view or template and makes it human readable but @RestCOntroller simply returns the object and object data is directly written into HTTP response as JSON or XML.
 
 
 
