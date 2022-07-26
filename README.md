@@ -92,6 +92,64 @@
 
           - to make this easy and clean, spring has the provision of profiles. to help separate the configuration for each environment so that instead of maintaining this programatically, the properties can be kept in separate files such as application-dev.properties and application-prod.properties. the default application.properties points to the currently active profile using spring.profils.active so that the current configuration is picked up
 
+#13 what is spring actuator ? What are its advantages ?
+
+          - In spring boot, actuator is an additional feature that help you monitor and manage your application when you push it to production. These features include auditing, health and metrics gathering and many more features that can be automatically applied to your application.
+
+          - you can enable this feature by adding the dependency: spring-boot-starter-actuaqtor in pom.xml
+
+          - using spring actuator, you can access those flows like what bean is created, what is the CPU usage, http hits that your server has handled.
+
+          Steps:
+                    1. Add Dependency
+                               <dependency>
+                              <groupId>org.springframework.boot</groupId>
+                                         <artifactId>spring-boot-starter-actuator</artifactId>
+                              </dependency>
+
+                    2. Hit localhost:8080/actuator
+                              localhost:8080/actuator/health
+                              localhost:8080/actuator/info
+                    3. To expose 
+                              in application.properties
+                              management.endpoints.web.exposure.include =*
+                              Exposes beans through localhost:8080/actuator/beans
+                              Exposes env through localhost:8080/actuator/env
+                              etc....
+                              
+#14 Enabling HTTP trace through actuator
+
+                    before 2.2.x spring boot we can just add dependency and expose using : management.endpoints.web.exposure.include =*
+                    but after 2.2.x it doesnt work because default-implementation stores the captured data in memory. Hence, it consumes much memory and memory is a pretty costly and precious. That is why this feature is now turned of by default and has to be turned on by the user explicitly if needed
+
+                    to fix this issue just create the bean of HttpTraceRepository which is in memory repository. This will store the last 100 http request- response exchanges into your memory.
+                    
+                    CODE EXAMPLE: 
+                    package com.code.decode.springBootExample;
+                    import org.springframework.boot.actuate.trace.http.HttpTraceRepository;
+                    import org.springframework.boot.actuate.trace.http.InMemoryHttpTraceRepository;
+                    import org.springframework.context.annotation.Bean;
+                    import org.springframework.context.annotation.Configuration;
+                    @Configuration
+                    public class ConfigurationClass
+                    {
+                    @Bean
+                    public HttpTraceRepository|htttpTraceRepository())
+                    {
+                    return new InMemoryHttpTraceRepository0):
+                    }
+                    }
+                    
+                    NOTE:
+                    Instead of /actuator if we want our custom end point then add below line in application.properties
+
+                    Management.endpoints.web.base-path =/manage
+                    
+#15 Customise the management server port
+
+                    Add this to properties file
+                              - management.server.port=8090
+
 
 
 
