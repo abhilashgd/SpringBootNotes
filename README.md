@@ -150,7 +150,17 @@
                     Add this to properties file
                               - management.server.port=8090
 
+#16 How to create Custom end points
 
+                    This can be achieved by adding the following annotations:
+                    @Endpoint and @Component to class
+                    @ReadOperation, @WriteOperation, or @DeleteOperation on method level
+                    .
+                    @ReadOperation maps to HTTP GET
+                    @WriteOperation maps to HTTP POST
+                    @DeleteOperation maps to HTTP DELETE
+                    By adding @Bean annotated with @Endpoint, any methods annotated with @ReadOperation,
+                    @WriteOperation, or @DeleteOperation are automatically exposed over JMX or HTTP.
 
 
 
