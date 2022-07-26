@@ -162,7 +162,19 @@
                     By adding @Bean annotated with @Endpoint, any methods annotated with @ReadOperation,
                     @WriteOperation, or @DeleteOperation are automatically exposed over JMX or HTTP.
 
-
+                    package com.code.decode.springBootExample.controller
+                    import org.springframework.boot.actuate.endpoint.annotation.Endpoint;
+                    import org.springframework.boot.actuate.endpoint.annotation.ReadOperation;
+                    import org.springframework.stereotype.Component;
+                    @Component
+                    @Endpoint (id = "customActuator")
+                    public class CustomActuator {
+                    PReadOperation
+                    public String currentDbDetails0) {
+                    return
+                    "Give current DB status of the application";
+                    }
+                    }
 
 
 
