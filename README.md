@@ -315,7 +315,10 @@
                     return NoOpPasswordEncoder.getInstance();
                     }
                     
-                    
+                    @override
+                    protected void configure(HttpSecurity http) throws Exception {
+                    http.authorizeRequests()
+                    .antMatchers("/code/admin").hasRole("ADMIN")
 
 
 
