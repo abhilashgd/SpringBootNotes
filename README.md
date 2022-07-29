@@ -310,7 +310,12 @@
                     spring.security.user.name = codeDecode
                     spring.security.user.password = code
 
-
+                    @Bean
+                    public PasswordEncoder getPasswordEncoder() {
+                    return NoOpPasswordEncoder.getInstance();
+                    }
+                    
+                    
 
 
 
