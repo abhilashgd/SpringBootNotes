@@ -314,6 +314,7 @@
                     public PasswordEncoder getPasswordEncoder() {
                     return NoOpPasswordEncoder.getInstance();
                     }
+                    //Authorization
                     
                     @override
                     protected void configure(HttpSecurity http) throws Exception {
