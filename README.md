@@ -283,9 +283,15 @@
                               Ex: Role_USER : login and search
                                   Admin: can do everything
                         
-                    
-                    
-                    
+                    <dependency>
+                              <groupId›org.springframework.boot</groupId>
+                              <artifactId>spring-boot-starter-security</artifactId>
+                    </dependency>
+
+                    How is spring security intercepting your requests ?
+
+                    Because of filter of servlets
+                    so filter is your receptionist validating all requests if they are genuine and legit users
 
 
 
