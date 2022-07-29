@@ -288,15 +288,27 @@
                               <artifactId>spring-boot-starter-security</artifactId>
                     </dependency>
 
-                    How is spring security intercepting your requests ?
+**How is spring security intercepting your requests ?**
 
                     Because of filter of servlets
                     so filter is your receptionist validating all requests if they are genuine and legit users
+                              
+                    application.properties file
+                    
+                    spring.datasource.url=jdbc:mysql://localhost:3306/codedecode?useSSL=false
+                    spring.datasource.username= root
+                    spring.datasource.password= root
+                    spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL5InnoDBDialect
+                    spring.jpa.hibernate.ddl-auto= update
 
+**Q) How to configure Authentication in Spring**
 
-
-
-
+                    Security extend WCA in custom class And use @enablewebSecurity annotation
+                    override configure(AMB) method
+                    configure type of auth, user, pass and role.
+                    This will create & configure a new AM And now SS will use this AM instead of default one.
+                    spring.security.user.name = codeDecode
+                    spring.security.user.password = code
 
 
 
