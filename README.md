@@ -247,7 +247,45 @@
 
                     When a property is defined in both yaml and properties file, spring boot gives preference to properties file than yaml
 
+#19 Spring Security
 
+**Why spring security is needed?**
+
+                    Server - secured
+                    OS - secured
+                    JVM - Secured
+                    Tomcat - Secured
+                    Application - not secured. hence we need spring security to secure application
+                    
+**How spring security is used to secure your application at a high level**
+
+                    Types of Authentication
+                              - Knowledge based authentication - password, pin, answer to security question
+                              - possesion based authentication - text message in our phone, key card or badges, auth tokens
+                              - knowledge + possesion - multifactor auth, login to VDIs or AWS system
+
+** what are the core concepts of spring security?**
+
+                    - Authentication
+                              - who are you ? - process of identifying the person trying to access the application
+                              
+                    - Authorization
+                              - process of identifying if the person in allowed to do this operation
+                              
+                    - Principal
+                              - is the person identified through authorization process
+                              - its also called currently logged in user that we store in session
+                              
+                    - Granted Authority
+                              - are bunch of permissions which are allowed for a user
+                    - Roles
+                              - group of authorities that are assigned together to a particular user
+                              Ex: Role_USER : login and search
+                                  Admin: can do everything
+                        
+                    
+                    
+                    
 
 
 
